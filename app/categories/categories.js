@@ -17,7 +17,4 @@ angular.module('categories', ['eggly.models.categories'])
   })
   .controller('CategoriesCtrl', function($scope) {
 
-  })
-  .controller('BookmarksCtrl', function($scope) {
-
   });
