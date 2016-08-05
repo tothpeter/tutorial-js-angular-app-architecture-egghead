@@ -1,4 +1,4 @@
-{{currentCategoryName}}
+{{bookmarks.currentCategoryName}}
 
 <br>
 <div ng-repeat="bookmark in bookmarks | filter: {category:currentCategory.name}" ng-class="{'active' : isSelectedBookmark(bookmark)}">
