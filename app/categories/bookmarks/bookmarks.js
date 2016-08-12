@@ -11,12 +11,13 @@ angular.module('categories.bookmarks', [
         views: {
           'bookmarks@': {
             templateUrl: 'app/categories/bookmarks/bookmarks.tmpl.html',
-            controller: 'BookmarksCtrl as bookmarks'
+            controller: 'BookmarkListCtrl as bookmarkListCtrl'
           }
         }
       });
   })
-  .controller('BookmarksCtrl', function($stateParams) {
-    var bookmarks = this;
-    bookmarks.currentCategoryName = $stateParams.category;
+  .controller('BookmarkListCtrl', function($stateParams, BookmarksModel) {
+    var bookmarkListCtrl = this;
+    bookmarkListCtrl.currentCategoryName = $stateParams.category;
+    bookmarkListCtrl.bookmarks = BookmarksModel.getBookmarks();
   });
