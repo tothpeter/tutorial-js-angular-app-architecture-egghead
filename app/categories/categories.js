@@ -5,7 +5,7 @@ angular.module('categories', ['eggly.models.categories'])
         url: '/',
         views: {
           'categories@': {
-            controller: 'CategoriesCtrl',
+            controller: 'CategoyListCtrl as categoyListCtrl',
             templateUrl: 'app/categories/categories.tmpl.html'
           },
           'bookmarks@': {
@@ -15,6 +15,7 @@ angular.module('categories', ['eggly.models.categories'])
         }
       });
   })
-  .controller('CategoriesCtrl', function($scope) {
-
+  .controller('CategoyListCtrl', function(CategoriesModel) {
+    var categoyListCtrl = this;
+    categoyListCtrl.categories = CategoriesModel.getCategories();
   });
