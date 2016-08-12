@@ -1,5 +1,5 @@
 angular.module('eggly.models.categories', [])
-  .service('CategoriesModel', function($http) {
+  .service('CategoriesModel', function($http, $q) {
     var model = this,
         urls = {
           fetch: 'data/categories.json'
@@ -16,6 +16,6 @@ angular.module('eggly.models.categories', [])
     }
 
     model.getCategories = function() {
-      return $http.get(urls.fetch).then(cacheData);
+      return categories ? $q.when(categories) : $http.get(urls.fetch).then(cacheData);
     };
   });
