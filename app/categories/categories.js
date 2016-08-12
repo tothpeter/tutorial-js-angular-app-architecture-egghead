@@ -17,5 +17,8 @@ angular.module('categories', ['eggly.models.categories'])
   })
   .controller('CategoyListCtrl', function(CategoriesModel) {
     var categoyListCtrl = this;
-    categoyListCtrl.categories = CategoriesModel.getCategories();
+    CategoriesModel.getCategories()
+      .then(function(result) {
+        categoyListCtrl.categories = result;
+      });
   });

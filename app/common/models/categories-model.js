@@ -1,14 +1,21 @@
 angular.module('eggly.models.categories', [])
-  .service('CategoriesModel', function() {
+  .service('CategoriesModel', function($http) {
     var model = this,
-        categories = [
-          {"id": 0, "name": "Development"},
-          {"id": 1, "name": "Design"},
-          {"id": 2, "name": "Exercise"},
-          {"id": 3, "name": "Humor"}
-        ];
+        urls = {
+          fetch: 'data/categories.json'
+        },
+        categories;
+
+    function extract(result) {
+      return result.data;
+    }
+
+    function cacheData(result) {
+      categories = extract(result);
+      return categories;
+    }
 
     model.getCategories = function() {
-      return categories;
+      return $http.get(urls.fetch).then(cacheData);
     };
   });
