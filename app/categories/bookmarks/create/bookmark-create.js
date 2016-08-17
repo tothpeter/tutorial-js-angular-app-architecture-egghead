@@ -3,10 +3,8 @@ angular.module('categories.bookmarks.create', [])
     $stateProvider
       .state('eggly.categories.bookmarks.create', {
         url: '/bookmarks/create',
-        views: {
-          templateUrl: 'app/categories/bookmarks/create/bookmark-create.tmpl.html',
-          controller: 'CreateBookmarkCtrl as createBookmarkCtrl'
-        }
+        templateUrl: 'app/categories/bookmarks/create/bookmark-create.tmpl.html',
+        controller: 'CreateBookmarkCtrl as createBookmarkCtrl'
       });
   })
   .controller('CreateBookmarkCtrl', function() {
