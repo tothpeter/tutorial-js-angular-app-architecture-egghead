@@ -9,7 +9,7 @@ angular.module('categories', ['eggly.models.categories'])
             templateUrl: 'app/categories/categories.tmpl.html'
           },
           'bookmarks@': {
-            controller: 'BookmarksCtrl',
+            controller: 'BookmarkListCtrl',
             templateUrl: 'app/categories/bookmarks/bookmarks.tmpl.html'
           }
         }

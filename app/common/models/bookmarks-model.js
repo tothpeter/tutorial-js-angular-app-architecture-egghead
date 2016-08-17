@@ -11,11 +11,11 @@ angular.module('eggly.models.bookmarks', [])
     }
 
     function cacheData(result) {
-      categories = extract(result);
-      return categories;
+      bookmarks = extract(result);
+      return bookmarks;
     }
 
     model.getBookmarks = function() {
-      return $http.get(urls.fetch).then(cacheData);;
+      return $http.get(urls.fetch).then(cacheData);
     };
   });
