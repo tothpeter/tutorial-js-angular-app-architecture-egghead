@@ -1,15 +1,15 @@
 <h1>{{bookmarkListCtrl.getCurrentCategoryName()}}</h1>
 
 <br>
-<div ng-repeat="bookmark in bookmarkListCtrl.bookmarks | filter: {category:currentCategory.name}" ng-class="{'active' : isSelectedBookmark(bookmark)}">
+<div ng-repeat="bookmark in bookmarkListCtrl.bookmarks | filter: {category:bookmarkListCtrl.getCurrentCategoryName()}" ng-class="{'active' : isSelectedBookmark(bookmark)}">
     <button type="button" class="close" ng-click="deleteBookmark(bookmark)">&times;</button>
-    <button type="button" class="btn btn-link" ng-click="startEditing(bookmark);"><span class="glyphicon glyphicon-pencil"></span></button>
+    <button type="button" class="btn btn-link" ui-sref="eggly.categories.bookmarks.edit({bookmarkId: bookmark.id})"><span class="glyphicon glyphicon-pencil"></span></button>
     <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
 </div>
 <hr/>
 <!-- CREATING -->
-<ui-view ng-if="shouldShowCreating()">
-  <button type="button" class="btn btn-link" ng-click="startCreating()">
+<ui-view ng-if="bookmarkListCtrl.getCurrentCategory()">
+  <button type="button" class="btn btn-link" ui-sref="eggly.categories.bookmarks.create">
     <span class="glyphicon glyphicon-plus"></span>
     Create Bookmark
   </button>
