@@ -18,4 +18,9 @@ angular.module('eggly.models.bookmarks', [])
     model.getBookmarks = function() {
       return $http.get(urls.fetch).then(cacheData);
     };
+
+    model.createBookmark= function(bookmark) {
+      bookmark.id = bookmarks.length;
+      bookmarks.push(bookmark);
+    };
   });
