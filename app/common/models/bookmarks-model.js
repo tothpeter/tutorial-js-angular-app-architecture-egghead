@@ -62,4 +62,10 @@ angular.module('eggly.models.bookmarks', [])
       bookmarks[bookmarkIndex] = bookmarkToUpdate;
       return bookmarks[bookmarkIndex];
     };
+
+    model.destroy = function(id) {
+      _.remove(bookmarks, function(bookmark) {
+        return bookmark.id === parseInt(id, 10);
+      });
+    }
   });

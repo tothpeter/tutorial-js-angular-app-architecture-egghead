@@ -28,4 +28,10 @@ angular.module('categories.bookmarks', [
 
     bookmarkListCtrl.getCurrentCategory = CategoriesModel.getCurrentCategory;
     bookmarkListCtrl.getCurrentCategoryName = CategoriesModel.getCurrentCategoryName;
+
+    bookmarkListCtrl.deleteBookmark = function(bookmark) {
+      if (confirm('Are you sure?')) {
+        BookmarksModel.destroy(bookmark.id);
+      }
+    }
   });
